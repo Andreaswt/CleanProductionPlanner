@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>API</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MediatR" Version="10.0.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Clean.ProductionPlanner.Application\Clean.ProductionPlanner.Application.csproj" />
+      <ProjectReference Include="..\Clean.ProductionPlanner.Identity\Clean.ProductionPlanner.Identity.csproj" />
+      <ProjectReference Include="..\Clean.ProductionPlanner.Infrastructure\Clean.ProductionPlanner.Infrastructure.csproj" />
+      <ProjectReference Include="..\Clean.ProductionPlanner.Persistence\Clean.ProductionPlanner.Persistence.csproj" />
+    </ItemGroup>
+
+</Project>
