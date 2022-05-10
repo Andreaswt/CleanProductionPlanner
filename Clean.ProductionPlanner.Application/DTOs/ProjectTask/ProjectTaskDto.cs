@@ -1,5 +1,7 @@
 using System;
 using Clean.ProductionPlanner.Application.DTOs.Common;
+using Clean.ProductionPlanner.Application.DTOs.Day;
+using Clean.ProductionPlanner.Application.DTOs.Project;
 using Clean.ProductionPlanner.Domain.Constants;
 
 namespace Clean.ProductionPlanner.Application.DTOs.ProjectTask
@@ -7,8 +9,8 @@ namespace Clean.ProductionPlanner.Application.DTOs.ProjectTask
     public class ProjectTaskDto : BaseDto, IProjectTaskDto
     {
         public string Name { get; set; }
-        public int ProjectId { get; set; }
-        public int? DayId { get; set; }
+        public ProjectDto Project { get; set; }
+        public DayDto Day { get; set; }
         public ProjectTaskProgress Progress { get; set; }
         public string Description { get; set; }
         public int Priority { get; set; }

@@ -8,6 +8,7 @@ namespace Clean.ProductionPlanner.Application.DTOs.Project
         public string Name { get; set; }
         public string Description { get; set; }
         public string Owner { get; set; }
+        public bool IsProjectTemplate { get; set; }
         public List<ProjectTaskDto>? ProjectTasks { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Clean.ProductionPlanner.Application.DTOs.Project.Validators
 {
-    public class IProjectDtoValidator : AbstractValidator<ProjectDto>
+    public class IProjectDtoValidator : AbstractValidator<IProjectDto>
     {
         public IProjectDtoValidator()
         {
@@ -18,6 +18,8 @@ namespace Clean.ProductionPlanner.Application.DTOs.Project.Validators
                 .MaximumLength(200).WithMessage("{PropertyName} must not exceed {ComparisonValue} characters.");
 
             RuleFor(x => x.Owner).NotEmpty().WithMessage("{PropertyName} is required");
+            
+            RuleForEach(x => x.ProjectTasks).SetValidator(new ProjectTaskDtoValidator());
         }
     }
 }

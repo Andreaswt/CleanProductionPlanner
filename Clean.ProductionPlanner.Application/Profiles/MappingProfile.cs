@@ -17,9 +17,8 @@ namespace Clean.ProductionPlanner.Application.Profiles
             CreateMap<Day, DayDto>().ReverseMap();
             
             CreateMap<Project, ProjectDto>().ReverseMap();
-            CreateMap<Project, CreateProjectTemplateDto>().ReverseMap();
             CreateMap<Project, CreateProjectDto>().ReverseMap();
-            
+
             CreateMap<ProjectTask, ProjectTaskDto>().ReverseMap();
             CreateMap<ProjectTask, CreateProjectTaskDto>().ReverseMap();
         }

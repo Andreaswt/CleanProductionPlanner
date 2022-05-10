@@ -18,7 +18,7 @@ namespace Clean.ProductionPlanner.Application.DTOs.Project.Validators
                 .WithMessage("{PropertyName} is required")
                 .MaximumLength(100).WithMessage("{PropertyName} must not exceed {ComparisonValue} characters.");
             
-            RuleFor(x => x.ProjectId).NotEmpty().WithMessage("{PropertyName} is required");
+            RuleFor(x => x.Project).NotEmpty().WithMessage("{PropertyName} is required");
             
             RuleFor(x => x.Priority)
                 .NotEmpty()

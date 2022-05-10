@@ -19,6 +19,12 @@ namespace Clean.ProductionPlanner.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductionPlannerDbContext).Assembly);
+            
+            modelBuilder
+                .Entity<ProjectTask>()
+                .HasOne(e => e.Project)
+                .WithMany(e => e.ProjectTasks)
+                .OnDelete(DeleteBehavior.ClientCascade);
         }
         
         public DbSet<Day> Days { get; set; }

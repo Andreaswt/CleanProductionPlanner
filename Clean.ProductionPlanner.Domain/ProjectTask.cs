@@ -8,8 +8,8 @@ namespace Clean.ProductionPlanner.Domain
     public class ProjectTask : BaseDomainEntity
     {
         public string? Name { get; set; }
-        public int? ProjectId { get; set; }
-        public int? DayId { get; set; }
+        public Project Project { get; set; }
+        public Day Day { get; set; }
         public ProjectTaskProgress Progress { get; set; }
         public string? Description { get; set; }
         public int Priority { get; set; }
