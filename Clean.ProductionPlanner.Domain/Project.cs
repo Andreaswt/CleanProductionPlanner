@@ -34,10 +34,5 @@ namespace Clean.ProductionPlanner.Domain
         {
             return ProjectTasks.OrderBy(t => t.Priority).ToList();
         }
-
-        public Project(ProjectProgress progress)
-        {
-            Progress = ProjectProgress.Todo;
-        }
     }
 }

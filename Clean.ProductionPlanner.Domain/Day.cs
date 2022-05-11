@@ -8,6 +8,7 @@ namespace Clean.ProductionPlanner.Domain
 {
     public class Day : BaseDomainEntity
     {
+        
         public List<ProjectTask>? Tasks { get; set; }
         public DateTime Date { get; set; }
         public int AvailableHours { get; set; }

@@ -18,8 +18,17 @@ namespace Clean.ProductionPlanner.Persistence.Repositories
             _dbContext = dbContext;
         }
         
-        public async Task<List<Day>> GetBetweenDates(DateTime startDate, DateTime endDate)
+        public async Task<List<Day>> GetBetweenDates(DateTime? startDate, DateTime? endDate)
         {
+            if (startDate == null && endDate == null)
+                return await _dbContext.Days.ToListAsync();
+            
+            if (startDate == null && endDate != null)
+                return await _dbContext.Days.Where(x => x.Date <= endDate).ToListAsync();
+            
+            if (startDate != null && endDate == null)
+                return await _dbContext.Days.Where(x => x.Date >= startDate).ToListAsync();
+            
             return await _dbContext.Days.Where(x => x.Date >= startDate && x.Date <= endDate).ToListAsync();
         }
     }

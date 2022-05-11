@@ -7,7 +7,7 @@ namespace Clean.ProductionPlanner.Application.Features.Days.Requests.Queries
 {
     public class GetDayListRequest : IRequest<List<DayDto>>
     {
-        public DateTime FromDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? FromDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }

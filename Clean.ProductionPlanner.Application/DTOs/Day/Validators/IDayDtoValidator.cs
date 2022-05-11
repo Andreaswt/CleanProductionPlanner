@@ -8,7 +8,7 @@ namespace Clean.ProductionPlanner.Application.DTOs.Day.Validators
         public IDayDtoValidator()
         {
             RuleFor(p => p.AvailableHours)
-                .LessThan(p => p.HoursLeftToBook).WithMessage("{PropertyName} must be larger than {ComparisonValue}");
+                .LessThanOrEqualTo(p => p.HoursLeftToBook).WithMessage("{PropertyName} must be larger than {ComparisonValue}");
         }
     }
 }

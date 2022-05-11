@@ -24,8 +24,12 @@ namespace Clean.ProductionPlanner.Application.Features.Days.Handlers.Queries
         
         public async Task<List<DayDto>> Handle(GetDayListRequest request, CancellationToken cancellationToken)
         {
-            var days = await _dayRepository.GetBetweenDates(request.FromDate,request.EndDate);
-            return _mapper.Map<List<DayDto>>(days);
+            if (request.FromDate == null && request.EndDate == null)
+            {
+                return  _mapper.Map<List<DayDto>>(await _dayRepository.GetAll());
+            }
+            
+            return  _mapper.Map<List<DayDto>>(await _dayRepository.GetBetweenDates(request.FromDate,request.EndDate));
         }
     }
 }

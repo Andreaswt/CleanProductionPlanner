@@ -8,6 +8,6 @@ namespace Clean.ProductionPlanner.Application.Contracts.Persistence
 {
     public interface IDayRepository : IGenericRepository<Day>
     {
-        public Task<List<Day>> GetBetweenDates(DateTime startDate, DateTime endDate);
+        public Task<List<Day>> GetBetweenDates(DateTime? startDate, DateTime? endDate);
     }
 }

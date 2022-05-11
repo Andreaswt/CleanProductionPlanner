@@ -15,7 +15,6 @@ namespace Clean.ProductionPlanner.Domain
         public int Priority { get; set; }
         public int Duration { get; set; }
         public int DurationWhenSorted { get; set; }
-        public DateTime Date { get; set; }
         public bool Assigned { get; set; }
         public string? PersonAssigned { get; set; }
         public bool Subtask { get; set; }
