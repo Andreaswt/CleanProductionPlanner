@@ -1,4 +1,5 @@
 using Clean.ProductionPlanner.Application.Contracts.Persistence;
+using Clean.ProductionPlanner.Application.DTOs.ProjectTask.Validators;
 using FluentValidation;
 
 namespace Clean.ProductionPlanner.Application.DTOs.Project.Validators

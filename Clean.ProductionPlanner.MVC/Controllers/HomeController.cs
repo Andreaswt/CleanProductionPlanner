@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Clean.ProductionPlanner.MVC.Models;
+using Clean.ProductionPlanner.MVC.Services.Base;
 using Microsoft.Extensions.Logging;
 
 namespace Clean.ProductionPlanner.MVC.Controllers{
@@ -17,6 +19,12 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         return View();
+    }
+    
+    public async Task<IActionResult> GenerateClasses()
+    {
+        var code = await ClientGenerator.GenerateClient();
+        return Ok(code);
     }
 
     public IActionResult Privacy()

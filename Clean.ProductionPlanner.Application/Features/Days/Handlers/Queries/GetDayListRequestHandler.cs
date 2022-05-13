@@ -29,7 +29,7 @@ namespace Clean.ProductionPlanner.Application.Features.Days.Handlers.Queries
                 return  _mapper.Map<List<DayDto>>(await _dayRepository.GetAll());
             }
             
-            return  _mapper.Map<List<DayDto>>(await _dayRepository.GetBetweenDates(request.FromDate,request.EndDate));
+            return _mapper.Map<List<DayDto>>(await _dayRepository.GetBetweenDates(request.FromDate,request.EndDate));
         }
     }
 }

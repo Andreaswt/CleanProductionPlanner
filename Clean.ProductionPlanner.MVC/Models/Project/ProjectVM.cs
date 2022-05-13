@@ -1,20 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Clean.ProductionPlanner.Application.DTOs.Common;
-using Clean.ProductionPlanner.Application.DTOs.ProjectTask;
-using Clean.ProductionPlanner.Domain.Constants;
+using Clean.ProductionPlanner.MVC.Constants;
 
-namespace Clean.ProductionPlanner.Application.DTOs.Project
+namespace Clean.ProductionPlanner.MVC.Models
 {
-    public class ProjectDto : BaseDto, IProjectDto
+    public class ProjectVM
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Owner { get; set; }
         public int Priority { get; set; }
         public bool IsProjectTemplate { get; set; }
-        public List<ProjectTaskDto>? ProjectTasks { get; set; }
+        public List<ProjectTaskVM>? ProjectTasks { get; set; }
         public DateTime? Created { get; set; }
         public ProjectProgress? Progress { get; set; }
     }

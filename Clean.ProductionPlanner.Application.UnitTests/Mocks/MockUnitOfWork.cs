@@ -9,8 +9,12 @@ namespace Clean.ProductionPlanner.Application.UnitTests.Mocks
         {
             var mockUow = new Mock<IUnitOfWork>();
             var mockDayRepo = MockDayRepository.GetDayRepository();
+            var mockProjectRepo = MockProjectRepository.GetProjectRepository();
+            var mockProjectTaskRepo = MockProjectTaskRepository.GetProjectTaskRepository();
 
             mockUow.Setup(r => r.DayRepository).Returns(mockDayRepo.Object);
+            mockUow.Setup(r => r.ProjectRepository).Returns(mockProjectRepo.Object);
+            mockUow.Setup(r => r.ProjectTaskRepository).Returns(mockProjectTaskRepo.Object);
 
             return mockUow;
         }

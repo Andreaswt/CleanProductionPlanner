@@ -33,7 +33,7 @@ namespace Clean.ProductionPlanner.Application.Features.Projects.Handlers.Command
             if(project is null)
                 throw new NotFoundException(nameof(Project), request.Id);
 
-            var validator = new ProjectDtoValidator();
+            var validator = new UpdateProjectDtoValidator();
             var validationResult = await validator.ValidateAsync(request.ProjectDto);
             if (validationResult.IsValid == false)
                 throw new ValidationException(validationResult);

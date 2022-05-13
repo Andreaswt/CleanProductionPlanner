@@ -7,6 +7,6 @@ namespace Clean.ProductionPlanner.Application.Features.Projects.Requests.Command
 {
     public class CreateProjectCommand : IRequest<BaseCommandResponse>
     {
-        public ProjectDto ProjectDto { get; set; }
+        public CreateProjectDto ProjectDto { get; set; }
     }
 }

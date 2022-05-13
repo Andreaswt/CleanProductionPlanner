@@ -14,7 +14,7 @@ namespace Clean.ProductionPlanner.Persistence
         public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ProductionPlannerDbContext>(options =>
-               options.UseSqlServer(
+               options.UseSqlite(
                    configuration.GetConnectionString("ProductionPlannerConnectionString")));
 
 

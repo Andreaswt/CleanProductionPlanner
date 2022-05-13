@@ -12,24 +12,23 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Clean.ProductionPlanner.MVC.Services.Base;
-using IClient = Clean.ProductionPlanner.MVC.Services.Base.IClient;
+using IAuthenticationService = Clean.ProductionPlanner.MVC.Contracts;
 
-namespace Clean.ProductionPlanner.MVC.Contracts
+namespace Clean.ProductionPlanner.MVC.Services
 {
-    public class AuthenticationService : BaseHttpService, IAuthenticationService
+    public class AuthenticationService : BaseHttpService, IAuthenticationService.IAuthenticationService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IMapper _mapper;
         private JwtSecurityTokenHandler _tokenHandler;
 
-        public AuthenticationService(IClient client, ILocalStorageService localStorage, IHttpContextAccessor httpContextAccessor,
+        public AuthenticationService(IClient client, IAuthenticationService.ILocalStorageService localStorage, IHttpContextAccessor httpContextAccessor,
             IMapper mapper)
             : base(client, localStorage)
         {
-            this._httpContextAccessor = httpContextAccessor;
-            this._mapper = mapper;
-            this._tokenHandler = new JwtSecurityTokenHandler();
+            _httpContextAccessor = httpContextAccessor;
+            _mapper = mapper;
+            _tokenHandler = new JwtSecurityTokenHandler();
         }
 
         public async Task<bool> Authenticate(string email, string password)
@@ -83,6 +82,31 @@ namespace Clean.ProductionPlanner.MVC.Contracts
             var claims = tokenContent.Claims.ToList();
             claims.Add(new Claim(ClaimTypes.Name, tokenContent.Subject));
             return claims;
+        }
+
+        public Task<AuthenticateResult> AuthenticateAsync(HttpContext context, string? scheme)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ChallengeAsync(HttpContext context, string? scheme, AuthenticationProperties? properties)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ForbidAsync(HttpContext context, string? scheme, AuthenticationProperties? properties)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SignInAsync(HttpContext context, string? scheme, ClaimsPrincipal principal, AuthenticationProperties? properties)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SignOutAsync(HttpContext context, string? scheme, AuthenticationProperties? properties)
+        {
+            throw new NotImplementedException();
         }
     }
 }

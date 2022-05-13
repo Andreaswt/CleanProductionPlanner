@@ -1,15 +1,14 @@
 using System;
-using Clean.ProductionPlanner.Application.DTOs.Common;
-using Clean.ProductionPlanner.Application.DTOs.Day;
-using Clean.ProductionPlanner.Application.DTOs.Project;
-using Clean.ProductionPlanner.Domain.Constants;
+using System.Collections.Generic;
+using Clean.ProductionPlanner.MVC.Constants;
 
-namespace Clean.ProductionPlanner.Application.DTOs.ProjectTask
+namespace Clean.ProductionPlanner.MVC.Models
 {
-    public class ProjectTaskDto : BaseDto, IProjectTaskDto
+    public class ProjectTaskVM
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-        public ProjectDto Project { get; set; }
+        public ProjectVM Project { get; set; }
         public string Description { get; set; }
         public int Priority { get; set; }
         public int Duration { get; set; }
@@ -18,6 +17,6 @@ namespace Clean.ProductionPlanner.Application.DTOs.ProjectTask
         public string? PersonAssigned { get; set; }
         public bool Subtask { get; set; }
         public ProjectTaskProgress Progress { get; set; }
-        public DayDto Day { get; set; }
+        public DayVM Day { get; set; }
     }
 }

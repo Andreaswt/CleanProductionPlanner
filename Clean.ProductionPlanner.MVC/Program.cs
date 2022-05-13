@@ -1,9 +1,10 @@
 using System;
-using System.Reflection;
 using Clean.ProductionPlanner.MVC.Contracts;
-using Clean.ProductionPlanner.MVC.Middleware;
 using Clean.ProductionPlanner.MVC.Services.Base;
+using Clean.ProductionPlanner.MVC.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Reflection;
+using Clean.ProductionPlanner.MVC.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +31,9 @@ builder.Services.AddHttpClient<IClient, Client>(cl => cl.BaseAddress = new Uri("
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 // Add my own scoped services here
+builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddScoped<IProjectTaskService, ProjectTaskService>();
+builder.Services.AddScoped<IDayService, DayService>();
 
 builder.Services.AddSingleton<ILocalStorageService, LocalStorageService>();
 builder.Services.AddControllersWithViews();

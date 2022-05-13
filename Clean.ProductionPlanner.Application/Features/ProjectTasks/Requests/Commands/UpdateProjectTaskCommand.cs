@@ -9,6 +9,6 @@ namespace Clean.ProductionPlanner.Application.Features.ProjectTasks.Requests.Com
     public class UpdateProjectTaskCommand : IRequest<Unit>
     {
         public int Id { get; set; }
-        public ProjectTaskDto ProjectTaskDto { get; set; }
+        public UpdateProjectTaskDto ProjectTaskDto { get; set; }
     }
 }

@@ -15,6 +15,7 @@ namespace Clean.ProductionPlanner.Identity
         public ProductionPlannerIdentityDbContext(DbContextOptions<ProductionPlannerIdentityDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
         
         // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

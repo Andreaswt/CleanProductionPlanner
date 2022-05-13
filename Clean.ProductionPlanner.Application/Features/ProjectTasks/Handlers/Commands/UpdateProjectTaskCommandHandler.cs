@@ -5,6 +5,7 @@ using AutoMapper;
 using Clean.ProductionPlanner.Application.Contracts.Persistence;
 using Clean.ProductionPlanner.Application.DTOs.Day.Validators;
 using Clean.ProductionPlanner.Application.DTOs.Project.Validators;
+using Clean.ProductionPlanner.Application.DTOs.ProjectTask.Validators;
 using Clean.ProductionPlanner.Application.Exceptions;
 using Clean.ProductionPlanner.Application.Features.Days.Requests.Commands;
 using Clean.ProductionPlanner.Application.Features.Projects.Requests.Commands;
@@ -34,7 +35,7 @@ namespace Clean.ProductionPlanner.Application.Features.ProjectTasks.Handlers.Com
             if(projectTask is null)
                 throw new NotFoundException(nameof(ProjectTask), request.Id);
 
-            var validator = new ProjectTaskDtoValidator();
+            var validator = new UpdateProjectTaskDtoValidator();
             var validationResult = await validator.ValidateAsync(request.ProjectTaskDto);
             if (validationResult.IsValid == false)
                 throw new ValidationException(validationResult);

@@ -14,6 +14,7 @@ namespace Clean.ProductionPlanner.Persistence
         public ProductionPlannerDbContext(DbContextOptions<ProductionPlannerDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,7 +25,7 @@ namespace Clean.ProductionPlanner.Persistence
                 .Entity<ProjectTask>()
                 .HasOne(e => e.Project)
                 .WithMany(e => e.ProjectTasks)
-                .OnDelete(DeleteBehavior.ClientCascade);
+                .OnDelete(DeleteBehavior.Cascade);
         }
         
         public DbSet<Day> Days { get; set; }

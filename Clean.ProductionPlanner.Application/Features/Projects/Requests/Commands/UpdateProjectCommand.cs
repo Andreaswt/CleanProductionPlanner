@@ -8,6 +8,6 @@ namespace Clean.ProductionPlanner.Application.Features.Projects.Requests.Command
     public class UpdateProjectCommand : IRequest<Unit>
     {
         public int Id { get; set; }
-        public ProjectDto ProjectDto { get; set; }
+        public UpdateProjectDto ProjectDto { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Clean.ProductionPlanner.Application.Contracts.Persistence;
 using Clean.ProductionPlanner.Domain;
 using Clean.ProductionPlanner.Domain.Constants;
@@ -7,7 +8,7 @@ using Moq;
 
 namespace Clean.ProductionPlanner.Application.UnitTests.Mocks
 {
-    public class MockProjectTaskRepository
+    public static class MockProjectTaskRepository
     {
         public static Mock<IProjectTaskRepository> GetProjectTaskRepository()
         {
@@ -40,11 +41,19 @@ namespace Clean.ProductionPlanner.Application.UnitTests.Mocks
 
             mockRepo.Setup(r => r.GetAll()).ReturnsAsync(projectTasks);
             
+            mockRepo.Setup(r => r.Get(It.IsAny<int>())).ReturnsAsync((int id) =>
+            {
+                return projectTasks.First(x => x.Id == id);
+            });
+            
             mockRepo.Setup(r => r.Add(It.IsAny<ProjectTask>())).ReturnsAsync((ProjectTask projectTask) => 
             {
                 projectTasks.Add(projectTask);
                 return projectTask;
             });
+
+            mockRepo.Setup(r => r.Delete(It.IsAny<ProjectTask>()))
+                .Callback<ProjectTask>((projectTask) => projectTasks.Remove(projectTask));
 
             return mockRepo;
         }

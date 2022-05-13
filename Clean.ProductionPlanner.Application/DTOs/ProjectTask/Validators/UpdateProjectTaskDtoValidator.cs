@@ -4,9 +4,9 @@ using FluentValidation;
 
 namespace Clean.ProductionPlanner.Application.DTOs.ProjectTask.Validators
 {
-    public class ProjectTaskDtoValidator : AbstractValidator<ProjectTaskDto>
+    public class UpdateProjectTaskDtoValidator : AbstractValidator<UpdateProjectTaskDto>
     {
-        public ProjectTaskDtoValidator()
+        public UpdateProjectTaskDtoValidator()
         {
             Include(new IProjectTaskDtoValidator());
         }

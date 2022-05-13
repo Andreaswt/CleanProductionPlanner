@@ -29,7 +29,7 @@ namespace Clean.ProductionPlanner.Application.Features.Projects.Handlers.Command
         public async Task<BaseCommandResponse> Handle(CreateProjectCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
-            var projectValidator = new ProjectDtoValidator();
+            var projectValidator = new CreateProjectDtoValidator();
             var projectValidationResult = await projectValidator.ValidateAsync(request.ProjectDto);
 
             if (projectValidationResult.IsValid == false)

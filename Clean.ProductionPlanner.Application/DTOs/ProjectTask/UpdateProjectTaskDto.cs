@@ -5,7 +5,7 @@ using Clean.ProductionPlanner.Domain.Constants;
 
 namespace Clean.ProductionPlanner.Application.DTOs.ProjectTask
 {
-    public class CreateProjectTaskDto : BaseDto
+    public class UpdateProjectTaskDto : IProjectTaskDto
     {
         public string Name { get; set; }
         public ProjectDto Project { get; set; }
